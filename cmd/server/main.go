@@ -14,7 +14,7 @@ func main() {
 		fmt.Println(err)
 	}
 	if configs.Environment == "dev" {
-		fmt.Println("Hello, world!")
+		fmt.Println("Hello this is dev")
 	}
 	fmt.Println("Hello, world!")
 	// http.HandleFunc("/hello", helloHandler)
