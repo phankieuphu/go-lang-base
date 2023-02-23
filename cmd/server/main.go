@@ -6,6 +6,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/phankieuphu/go-lang-base/config"
+	"github.com/phankieuphu/go-lang-base/internal/model"
 )
 
 func main() {
@@ -16,6 +17,7 @@ func main() {
 	if configs.Environment == "dev" {
 		fmt.Println("Hello this is dev")
 	}
+	model.ConnetDatabase()
 	fmt.Println("Hello, world!")
 	// http.HandleFunc("/hello", helloHandler)
 	// log.Println("Listing for requests at http://localhost:8000/hello")
