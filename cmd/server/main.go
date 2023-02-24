@@ -7,7 +7,10 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/phankieuphu/go-lang-base/config"
 	"github.com/phankieuphu/go-lang-base/internal/model"
+	"github.com/phankieuphu/go-lang-base/internal/routers"
 )
+
+var r = gin.Default()
 
 func main() {
 	configs, err := config.LoadConfig(".")
@@ -19,14 +22,18 @@ func main() {
 	}
 	model.ConnetDatabase()
 	fmt.Println("Hello, world!")
-	// http.HandleFunc("/hello", helloHandler)
-	// log.Println("Listing for requests at http://localhost:8000/hello")
-	// log.Fatal(http.ListenAndServe(":8000", nil))
 	r := gin.Default()
+
 	r.GET("/hello", func(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{
-			"message": "Hello,world!",
+			"message": "Helgolo,world!",
 		})
 	})
+	getRouters()
 	r.Run()
+}
+
+func getRouters() {
+	v1 := r.Group("/api/v1")
+	routers.VoucherRouter(v1)
 }
