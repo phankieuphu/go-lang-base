@@ -15,6 +15,7 @@ func ConnetDatabase() {
 		// panic("failed to connect database")
 		return
 	}
+	database.AutoMigrate(&Voucher{})
 	fmt.Println("Connect database successfully")
 	DB = database
 }
